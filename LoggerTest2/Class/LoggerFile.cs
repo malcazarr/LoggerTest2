@@ -9,6 +9,7 @@ namespace LoggerTest2.Class
 {   
     class LoggerFile : ILogger
     {
+        // Singleton
         private static LoggerFile instance;
 
         private LoggerFile()
