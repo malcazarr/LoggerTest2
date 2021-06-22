@@ -10,7 +10,7 @@ namespace LoggerTest2.Class
     {
         void ILogger.write(string message, string type)
         {
-            Console.WriteLine("Escribiendo en databases: " + "[" + type + "] " + message);
+            Console.WriteLine("Escribiendo en databases: " + DateTime.Now + " [" + type + "] " + message);
         }
     }
 }

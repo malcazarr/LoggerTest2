@@ -11,8 +11,11 @@ namespace LoggerTest2
         static void Main(string[] args)
         {
             Console.WriteLine("Start to console...");
-            var loggfileInstance = LoggerFile.Instance;
-            Logger logger = new Logger(loggfileInstance);
+
+
+            //var loggfileInstance = LoggerFile.Instance;
+            //Logger logger = new Logger(loggfileInstance);
+            Logger logger = new Logger(new AllDestination());
             for (var i = 1; i <= 10; i++)
             {
                 logger.INFO("Message: " + i);

@@ -10,9 +10,37 @@ namespace LoggerTest2.Class
     {
         void ILogger.write(string message, string type)
         {
-            Console.WriteLine("Escribiendo en Console: " + "[" + type + "] " + message);
-            Console.WriteLine("Escribiendo en Database: " + "[" + type + "] " + message);
-            Console.WriteLine("Escribiendo en File: " + "[" + type + "] " + message);
+            sender(message, type);
+        }
+
+        public void sender(string message, string type)
+        {
+            var logConsole = new Logger(new LoggerConsole());
+            var logFile = new Logger(LoggerFile.Instance);
+            var logDatabase = new Logger(new LoggerDatabases());
+            switch (type){
+                case "WARN":
+                    logConsole.WARN(message);
+                    logFile.WARN(message);
+                    logDatabase.WARN(message);
+                    break;
+                case "INFO":
+                    logConsole.INFO(message);
+                    logFile.INFO(message);
+                    logDatabase.INFO(message);
+                    break;
+                case "MESSAGE":
+                    logConsole.MESSAGE(message);
+                    logFile.MESSAGE(message);
+                    logDatabase.MESSAGE(message);
+                    break;
+                case "ERROR":
+                    logConsole.ERROR(message);
+                    logFile.ERROR(message);
+                    logDatabase.ERROR(message);
+                    break;
+            }
+
         }
     }
 }
