@@ -7,7 +7,6 @@ using System.IO;
 
 namespace LoggerTest2.Class
 {   
-    //SINGLETON
     class LoggerFile : ILogger
     {
         private static LoggerFile instance;
