@@ -8,7 +8,7 @@ namespace LoggerTest2.Class
 {
     class LoggerConsole: ILogger
     {
-        void ILogger.write(string message, string type)
+        void ILogger.Write(string message, string type)
         {
            Console.WriteLine(DateTime.Now + " [" + type + "] " + message);
         }

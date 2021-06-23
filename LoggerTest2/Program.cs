@@ -12,13 +12,27 @@ namespace LoggerTest2
         {
             Console.WriteLine("Start to console...");
 
+            //logging for file
+            //Logger logger = new Logger( LoggerFile.Instance);
 
-            //var loggfileInstance = LoggerFile.Instance;
-            //Logger logger = new Logger(loggfileInstance);
-            Logger logger = new Logger(new AllDestination());
+            //loggin for Console
+            //Logger logger = new Logger(new LoggerConsole());
+
+            //loggin for Databases
+            //Logger logger = new Logger(new LoggerDatabases());
+
+            //Loggin for All Destination
+            //Logger logger = new Logger(new AllDestination());
+
+            //Loggin declarating Destination  ["file","console","database","all"]
+            Logger logger = new Logger(TypeDestination.all);
+
             for (var i = 1; i <= 10; i++)
             {
-                logger.INFO("Message: " + i);
+                logger.INFO("Message INFO: " + i);
+                logger.WARN("Message WARN: "  + i );
+                logger.MESSAGE("Single MESSAGE: " + i );
+                logger.ERROR("Message ERROR: " + i);
             }
             Console.WriteLine("End of messages");
             Console.ReadLine();
