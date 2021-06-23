@@ -15,9 +15,9 @@ namespace LoggerTest2.Class
 
         public void sender(string message, string type)
         {
-            var logConsole = new Logger(new LoggerConsole());
-            var logFile = new Logger(LoggerFile.Instance);
-            var logDatabase = new Logger(new LoggerDatabases());
+            var logConsole = new Logger(typeDestination.console);
+            var logFile = new Logger(typeDestination.file);
+            var logDatabase = new Logger(typeDestination.database);
             switch (type){
                 case "WARN":
                     logConsole.WARN(message);

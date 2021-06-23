@@ -29,7 +29,7 @@ namespace LoggerTest2.Class
         
         void ILogger.write(string message, string type)
         {
-            Console.WriteLine("Escribiendo en Archivo: " + "[" + type + "] " + message);
+            Console.WriteLine("[" + type + "] " + message);
             try
             {
                 using(StreamWriter sw = File.AppendText(".\\test.log"))
