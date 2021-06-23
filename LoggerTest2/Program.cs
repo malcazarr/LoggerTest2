@@ -25,7 +25,7 @@ namespace LoggerTest2
             //Logger logger = new Logger(new AllDestination());
 
             //Loggin declarating Destination  ["file","console","database","all"]
-            Logger logger = new Logger(typeDestination.file);
+            Logger logger = new Logger(TypeDestination.all);
 
             for (var i = 1; i <= 10; i++)
             {

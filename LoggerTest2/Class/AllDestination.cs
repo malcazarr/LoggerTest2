@@ -8,16 +8,16 @@ namespace LoggerTest2.Class
 {
     class AllDestination : ILogger
     {
-        void ILogger.write(string message, string type)
+        void ILogger.Write(string message, string type)
         {
-            sender(message, type);
+            Sender(message, type);
         }
 
-        public void sender(string message, string type)
+        public void Sender(string message, string type)
         {
-            var logConsole = new Logger(typeDestination.console);
-            var logFile = new Logger(typeDestination.file);
-            var logDatabase = new Logger(typeDestination.database);
+            var logConsole = new Logger(TypeDestination.console);
+            var logFile = new Logger(TypeDestination.file);
+            var logDatabase = new Logger(TypeDestination.database);
             switch (type){
                 case "WARN":
                     logConsole.WARN(message);

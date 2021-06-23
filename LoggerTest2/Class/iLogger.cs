@@ -8,6 +8,6 @@ namespace LoggerTest2.Class
 {
     interface ILogger
     {
-        void write(string message, string type);
+        void Write(string message, string type);
     }
 }

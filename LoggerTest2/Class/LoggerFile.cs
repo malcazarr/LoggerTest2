@@ -27,7 +27,7 @@ namespace LoggerTest2.Class
              } 
         }
         
-        void ILogger.write(string message, string type)
+        void ILogger.Write(string message, string type)
         {
             Console.WriteLine("[" + type + "] " + message);
             try

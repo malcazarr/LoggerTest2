@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoggerTest2.Class
 {
-    enum typeDestination { file, console, database, all } 
+    enum TypeDestination { file, console, database, all } 
     class Logger
     {
         private ILogger iLogger;
@@ -15,20 +15,20 @@ namespace LoggerTest2.Class
             this.iLogger = iLogger;
         }
 
-        public Logger(typeDestination type)
+        public Logger(TypeDestination type)
         {
             switch (type)
             {
-                case typeDestination.file:
+                case TypeDestination.file:
                     iLogger = LoggerFile.Instance;
                     break;
-                case typeDestination.console:
+                case TypeDestination.console:
                     iLogger = new LoggerConsole();
                     break;
-                case typeDestination.database:
+                case TypeDestination.database:
                     iLogger = new LoggerDatabases();
                     break;
-                case typeDestination.all:
+                case TypeDestination.all:
                     iLogger = new AllDestination();
                     break;
             }
@@ -36,22 +36,22 @@ namespace LoggerTest2.Class
 
         public void WARN(string message)
         {
-            iLogger.write(message, "WARN");
+            iLogger.Write(message, "WARN");
         }
 
         public void INFO (string message)
         {
-            iLogger.write(message, "INFO");
+            iLogger.Write(message, "INFO");
         }
 
         public void MESSAGE (string message)
         {
-            iLogger.write(message, "MESSAGE");
+            iLogger.Write(message, "MESSAGE");
         }
 
         public void ERROR (string message)
         {
-            iLogger.write(message, "ERROR");
+            iLogger.Write(message, "ERROR");
         }
         
     }
