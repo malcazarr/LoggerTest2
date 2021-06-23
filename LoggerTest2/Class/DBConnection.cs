@@ -20,7 +20,7 @@ namespace LoggerTest2.Class
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al conectar con la base de datos: " + ex);
+                Console.WriteLine("Error al conectar con la base de datos: " + ex.Message);
                 return false;
             }
         }
@@ -34,7 +34,7 @@ namespace LoggerTest2.Class
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al desconectar con la base de datos: " + ex);
+                Console.WriteLine("Error al desconectar con la base de datos: " + ex.Message);
                 return false;
             }
         }
@@ -42,7 +42,7 @@ namespace LoggerTest2.Class
         {
             try
             {
-                string query = "INSERT INTO Log (type, message) values('" + type + "','" + message + "')";
+                string query = "INSERT INTO Log (type, message, time) values('" + type + "','" + message + "','"+ DateTime.Now+ "')";
                 SqlCommand command = new SqlCommand(query, con);
                 SqlDataReader reader = command.ExecuteReader();
                 this.disconnect();
@@ -50,7 +50,7 @@ namespace LoggerTest2.Class
             }
             catch(Exception e)
             {
-                Console.WriteLine("Error al insertar registros a la base de datos: " + e );
+                Console.WriteLine("Error al insertar registros a la base de datos: " + e.Message );
                 return false;
             }
 
